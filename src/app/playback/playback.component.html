@@ -1,0 +1,26 @@
+<div [ngClass]="!enableDarkMode ? 'body' : 'body-dark'">
+    <div class="main-content">
+        <div [ngClass]="!enableDarkMode ? 'battery' : 'battery-dark'" fxLayout.xs='row' fxLayoutAlign="end center">
+            <img *ngIf="!isBatteryCharging" class="battery-icon" src="../../assets/battery.png">
+            <img *ngIf="isBatteryCharging" class="battery-icon" src="../../assets/battery-charging.jpg">
+            <span class="battery-info">{{batteryLevel}}</span>
+        </div>
+    
+        <div [ngClass]="!enableDarkMode ? 'media-title' : 'media-title-dark'" fxLayout.xs='row' fxLayoutAlign="start center">
+            Big bunny sample video
+        </div>
+    
+        <div fxLayout.xs='row' fxLayoutAlign="center center">
+            <video id="player" class="playback" controls poster="../../assets/sample.png" preload="metadata">
+                <source src="../../assets/sample.flv" type="video/flv">
+                <source src="../../assets/sample.mp4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video</p>
+            </video>
+        </div>
+    
+        <div class="fullscreen-button" fxLayout.xs='row' fxLayoutAlign="center center" fxLayoutGap="20px">
+            <button mat-mini-fab *ngIf="isLandscape"  id="fullscreenBtn" (click)="gofull()"> <mat-icon>fullscreen</mat-icon></button>
+            <button mat-mini-fab id="shareBtn" (click)="share()"><mat-icon>share</mat-icon></button>
+        </div>
+    </div>
+</div>
